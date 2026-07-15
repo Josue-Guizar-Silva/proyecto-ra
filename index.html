@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: targets.mind; filterMinCF: 0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
       <a-assets>
         <img id="miMural" src="aldo.jpeg">
@@ -18,9 +18,9 @@
         <a-image src="#miMural" 
                  position="0 0 0.1" 
                  rotation="0 0 0" 
-                 width="1.5" 
-                 height="1.2"
-                 material="shader: flat;"
+                 width="3" 
+                 height="2.4"
+                 material="shader: flat; color: #FFFFFF;"
                  animation="property: position; to: 0 0.1 0.1; dir: alternate; dur: 2000; loop: true">
         </a-image>
 
