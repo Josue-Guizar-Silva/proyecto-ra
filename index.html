@@ -5,18 +5,17 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
+    <!-- Máxima estabilización (filterBeta) y 5 segundos de retardo (missTolerance) -->
     <a-scene mindar-image="imageTargetSrc: targets.mind; filterMinCF: 0.0001; filterBeta: 0.0001; missTolerance: 150;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
       <a-assets>
         <img id="muralFondo" src="aldo.jpeg">
-        <img id="personasRecortadas" src="personas.png">
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
       <a-entity mindar-image-target="targetIndex: 0">
         <a-image src="#muralFondo" position="0 0 0" width="3" height="2.4" material="shader: flat; color: #FFFFFF;"></a-image>
-        <a-image src="#personasRecortadas" position="0 0 0.2" width="3" height="2.4" material="shader: flat; color: #FFFFFF;"></a-image>
       </a-entity>
       
     </a-scene>
