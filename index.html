@@ -5,16 +5,20 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: targets.mind; filterMinCF: 0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <!-- missTolerance: 90 es lo que hace que tarde 3 segundos en desaparecer -->
+    <a-scene mindar-image="imageTargetSrc: targets.mind; filterMinCF: 0.0001; filterBeta: 0.001; missTolerance: 90;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       
       <a-assets>
         <img id="miMural" src="aldo.jpeg">
+        <!-- Esta es tu nueva imagen recortada -->
+        <img id="capaCaras" src="caras.png">
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
       <a-entity mindar-image-target="targetIndex: 0">
         
+        <!-- Mural de fondo (atrás) -->
         <a-image src="#miMural" 
                  position="0 0 0.1" 
                  rotation="0 0 0" 
@@ -22,6 +26,16 @@
                  height="2.4"
                  material="shader: flat; color: #FFFFFF;"
                  animation="property: position; to: 0 0.1 0.1; dir: alternate; dur: 2000; loop: true">
+        </a-image>
+
+        <!-- Caras resaltadas (Z = 0.5, flotan más hacia ti) -->
+        <a-image src="#capaCaras" 
+                 position="0 0 0.5" 
+                 rotation="0 0 0" 
+                 width="3" 
+                 height="2.4"
+                 material="shader: flat; color: #FFFFFF;"
+                 animation="property: position; to: 0 0.1 0.5; dir: alternate; dur: 2000; loop: true">
         </a-image>
 
       </a-entity>
